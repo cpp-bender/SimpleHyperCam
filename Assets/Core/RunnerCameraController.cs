@@ -2,21 +2,39 @@ using UnityEngine;
 
 public class RunnerCameraController : MonoBehaviour
 {
-    public Transform target;
-    public Vector3 followOffset;
-    public float followSpeed;
-    public bool canFollow;
+    [SerializeField, Space(1f)] RunnerCameraControllerData camData;
 
+    private RunnerCameraState camState;
+    private Transform target;
+    private Vector3 desiredPos;
+    private Vector3 currentPos;
+    private Vector3 velocity;
+
+    private void Start()
+    {
+        SetState(RunnerCameraState.FOLLOW);
+        SetTarget(FindObjectOfType<PlayerController>().transform);
+    }
 
     private void LateUpdate()
     {
-        if (!canFollow)
+        if (camState == RunnerCameraState.STOP)
         {
             return;
         }
 
-        Vector3 desiredPos = transform.position - target.transform.position;
+        currentPos = transform.position;
+        desiredPos = (target.position + camData.FollowOffset);
+        transform.position = Vector3.SmoothDamp(currentPos, desiredPos, ref velocity, camData.FollowSmootheness);
+    }
 
-        transform.position = Vector3.Lerp(transform.position, desiredPos, Time.deltaTime * 5f);
+    public void SetState(RunnerCameraState newState)
+    {
+        camState = newState;
+    }
+
+    public void SetTarget(Transform newTarget)
+    {
+        target = newTarget;
     }
 }

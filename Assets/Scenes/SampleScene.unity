@@ -325,6 +325,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de15b65db46d6644b80ff45fd181c452, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveDir: {x: 0, y: 0, z: 1}
+  moveSpeed: 0
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,3 +423,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb9bde675cf681f4788cf2422738e113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camData: {fileID: 11400000, guid: cd8e2a4d96f10174a970e1a377088847, type: 2}
