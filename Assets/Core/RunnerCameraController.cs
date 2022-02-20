@@ -6,6 +6,7 @@ public class RunnerCameraController : MonoBehaviour
 
     private RunnerCameraState camState;
     private Transform target;
+    private Vector3 targetPos;
     private Vector3 desiredPos;
     private Vector3 currentPos;
     private Vector3 velocity;
@@ -24,7 +25,8 @@ public class RunnerCameraController : MonoBehaviour
         }
 
         currentPos = transform.position;
-        desiredPos = (target.position + camData.FollowOffset);
+        targetPos = new Vector3(target.transform.position.x * (int)camData.X, target.position.y * (int)camData.Y, target.position.z * (int)camData.Z);
+        desiredPos = (targetPos + camData.FollowOffset);
         transform.position = Vector3.SmoothDamp(currentPos, desiredPos, ref velocity, camData.FollowSmootheness);
     }
 
