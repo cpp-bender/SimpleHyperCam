@@ -9,11 +9,12 @@
   
   - [Introduction](#introduction)
   - [Usage](#usage)
+  - [Disclaimer](#disclaimer)
     
 </details>
 
 ## Introduction
-A way to handle Camera Movement in runner-hyper-casual games.
+A quick way to handle Camera Movement in runner-hyper-casual games without any if statements
 
 ## Usage
 
@@ -21,7 +22,7 @@ A way to handle Camera Movement in runner-hyper-casual games.
 
 https://user-images.githubusercontent.com/59537269/155844861-7601d90b-d1a0-4403-8725-b5420f598276.mp4
 
-2 -  After that, In order to make camera follow target, You need to set its target and state
+2 -  After that, In order to make camera follow the target, You need to set its target and state
 
 ```csharp
 using UnityEngine;
@@ -48,8 +49,8 @@ public class GameManager : MonoBehaviour
 
 https://user-images.githubusercontent.com/59537269/155845016-beefa197-7d4e-4609-bee5-ebe143a3a02e.mp4
 
-- Note that, If you want to stop the camera, You just need to use the public "SetState" method and pass in a "RunnerCameraState.STOP" argument
 
+## Disclaimer
 
-
-
+- If you want to stop the camera, You just need to use the public "SetState" method and pass in a "RunnerCameraState.STOP" argument
+- Do not forget to set target by using the public "SetTarget" method before start up
